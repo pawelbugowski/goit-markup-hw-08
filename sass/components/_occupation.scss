@@ -1,0 +1,38 @@
+.occupation {
+  transform: scale(0);
+  height: 0;
+  margin: 0;
+  padding: 0;
+
+  &__header {
+    font-weight: 700;
+    font-size: 36px;
+  }
+
+  &__list {
+    &__item {
+      width: 370px;
+      display: flex;
+      margin-left: 15px;
+      margin-right: 15px;
+      position: relative;
+    }
+
+    &__label {
+      font-weight: 700;
+      font-size: 14px;
+      text-align: center;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: $MainColorSecond;
+      width: 370px;
+      height: 70px;
+      background: rgba(47, 48, 58, 0.8);
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

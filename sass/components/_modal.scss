@@ -1,0 +1,259 @@
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background-color: $BrandColorNinth;
+  transition: transform 250ms $BrandTransitionPrimary,
+    visibility 250ms $BrandTransitionPrimary,
+    opacity 250ms $BrandTransitionPrimary;
+}
+
+.is-hidden {
+  transform: scale(0);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  min-height: 581px;
+  background-color: $MainColorSecond;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+
+  &__close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    background-color: $MainColorSecond;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &__form {
+    position: absolute;
+    width: 370px;
+    min-height: 609px;
+    padding: 40px 0;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    &__box {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    &__header {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 23px;
+      text-align: center;
+      letter-spacing: 0.03em;
+      color: $MainColorFirst;
+      width: 100%;
+    }
+
+    &__label {
+      font-size: 12px;
+      letter-spacing: 0.01em;
+      color: $BrandColorThird;
+      padding: 10px 0 4px 0;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    &__input {
+      box-sizing: border-box;
+      height: 40px;
+      width: 100%;
+      border: 1px solid rgba(33, 33, 33, 0.2);
+      border-radius: 4px;
+      transition-property: border;
+      transition-duration: 250ms;
+      transition-timing-function: $BrandTransitionPrimary;
+
+      &__box {
+        width: 100%;
+        position: relative;
+
+        &:focus-within svg {
+          fill: $BrandColorFirst;
+        }
+
+        &:focus-within input {
+          outline: $BrandColorFirst;
+        }
+
+        &:focus-within textarea {
+          outline: $BrandColorFirst;
+        }
+      }
+
+      &:last-child {
+        height: 120px;
+      }
+
+      &:not(:last-child) {
+        padding-left: 42px;
+      }
+
+      &:hover,
+      &:focus {
+        border: 1px solid $BrandColorFirst;
+      }
+
+      &::placeholder {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        letter-spacing: 0.01em;
+        color: rgba(117, 117, 117, 0.5);
+      }
+    }
+
+    &__icon {
+      width: 18px;
+      height: 18px;
+      fill: $MainColorFirst;
+      z-index: 5;
+      position: absolute;
+      top: 11px;
+      left: 12px;
+    }
+
+    textarea {
+      box-sizing: border-box;
+      width: 100%;
+      height: 120px;
+      resize: none;
+      padding: 12px 16px;
+    }
+
+    /* checkbox */
+
+    &__checkbox {
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: row wrap;
+      padding: 25px 0;
+
+      &__input {
+        appearance: none;
+      }
+
+      &__icon:first-child {
+        width: 16px;
+        height: 15px;
+        fill: $MainColorFirst;
+      }
+
+      &__icon:last-child {
+        width: 16px;
+        height: 15px;
+        fill: none;
+      }
+
+      &__text {
+        font-size: 14px;
+        line-height: 1.71;
+        letter-spacing: 0.03em;
+        color: $BrandColorThird;
+      }
+
+      &__label {
+        cursor: pointer;
+        display: flex;
+      }
+
+      &__label span:first-child {
+        position: relative;
+        padding-right: 5px;
+        width: 16px;
+        height: 15px;
+        transition: $BrandTransitionPrimary 300ms;
+      }
+
+      &__label span:first-child > svg:first-child {
+        position: absolute;
+        fill: $MainColorFirst;
+      }
+
+      &__label span:first-child > svg:last-child {
+        position: absolute;
+        opacity: 0;
+      }
+
+      &__label span:last-child {
+        padding-left: 8px;
+        line-height: 18px;
+      }
+
+      &__label:hover span:first-child > svg {
+        fill: $BrandColorFirst;
+      }
+
+      &__input:checked + &__label span:first-child > svg:first-child {
+        fill: none;
+      }
+
+      &__input:checked + &__label span:first-child > svg:last-child {
+        opacity: 100%;
+      }
+
+      &__link {
+        text-decoration: none;
+        color: $BrandColorFirst;
+        text-decoration: underline;
+      }
+    }
+
+    /* modal button */
+
+    &__button {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      width: 200px;
+      height: 50px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+      border-radius: 4px;
+      border: none;
+      justify-content: center;
+      background-color: $BrandColorFirst;
+
+      &__text {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.88;
+        display: flex;
+        letter-spacing: 0.06em;
+        color: $MainColorSecond;
+      }
+    }
+  }
+}

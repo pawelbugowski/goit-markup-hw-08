@@ -1,0 +1,58 @@
+.clients {
+  &__header {
+    font-weight: 700;
+    font-size: 36px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+
+    &__item {
+      display: flex;
+
+      border: 1px solid $BrandColorSixth;
+      border-radius: 4px;
+      margin: 15px;
+      width: 210px;
+      height: 92px;
+      transition-property: border;
+      transition-duration: 250ms;
+      transition-timing-function: $BrandTransitionPrimary;
+
+      &:hover {
+        border: 1px solid $BrandColorFirst;
+      }
+    }
+  }
+
+  &__icon {
+    width: 106px;
+    height: 60px;
+    fill: $BrandColorSixth;
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: $BrandTransitionPrimary;
+  }
+
+  &__link {
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: $BrandTransitionPrimary;
+
+    &:hover > svg {
+      fill: $BrandColorFirst;
+    }
+
+    &:focus > svg {
+      fill: $BrandColorFirst;
+    }
+  }
+}
